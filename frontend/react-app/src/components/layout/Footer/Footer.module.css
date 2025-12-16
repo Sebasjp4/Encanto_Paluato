@@ -1,0 +1,125 @@
+/* ========================================
+   FOOTER STYLES - Encanto de Paluato
+   ======================================== */
+
+.footer {
+  background-color: #1a1a1a; /* Fondo oscuro elegante */
+  color: #bbb; /* Texto gris claro */
+  padding: 80px 5% 30px; /* Padding generoso arriba, menos abajo */
+  font-size: 0.95rem;
+}
+
+/* Grid responsivo de 3 columnas */
+.footerGrid {
+  display: grid;
+  /* Crea columnas que se adaptan automáticamente, mínimo 250px cada una */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 50px; /* Espacio entre columnas */
+  max-width: 1200px; /* Ancho máximo del contenido */
+  margin: 0 auto; /* Centra el grid */
+  margin-bottom: 60px; /* Espacio antes del copyright */
+}
+
+/* Estilos para cada columna del footer */
+.colFooter h3 {
+  color: #fff; /* Títulos en blanco */
+  font-family: 'Playfair Display', serif; /* Fuente elegante */
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+}
+
+.colFooter p {
+  line-height: 1.6; /* Espaciado de línea cómodo */
+  margin-bottom: 15px;
+}
+
+.colFooter a {
+  color: #bbb; /* Color gris claro por defecto */
+  text-decoration: none; /* Sin subrayado */
+  transition: color 0.3s ease;
+}
+
+.colFooter a:hover {
+  color: var(--color-primario); /* Verde al hacer hover */
+}
+
+/* Lista de enlaces */
+.colFooter ul {
+  list-style: none; /* Sin viñetas */
+  padding: 0;
+  margin: 0;
+}
+
+.colFooter ul li {
+  margin-bottom: 12px;
+}
+
+.colFooter ul li a {
+  color: #bbb;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block; /* Permite animación de transform */
+}
+
+.colFooter ul li a:hover {
+  color: var(--color-primario);
+  padding-left: 5px; /* Desplaza ligeramente a la derecha */
+}
+
+/* Iconos de redes sociales */
+.socialIcons {
+  display: flex;
+  gap: 15px; /* Espacio entre iconos */
+  margin-top: 20px;
+}
+
+.socialIcons a {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; /* Círculo perfecto */
+  color: #fff;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.socialIcons a:hover {
+  background: var(--color-primario); /* Fondo verde al hover */
+  transform: scale(1.1); /* Crece ligeramente */
+}
+
+/* Sección del copyright */
+.footerBottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria sutil */
+  padding-top: 30px;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* ========================================
+   RESPONSIVE - MÓVIL
+   ======================================== */
+@media (max-width: 768px) {
+  .footer {
+    padding: 60px 20px 20px;
+  }
+
+  .footerGrid {
+    /* En móvil, una columna */
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .colFooter {
+    text-align: center; /* Centra todo en móvil */
+  }
+
+  .socialIcons {
+    justify-content: center; /* Centra los iconos */
+  }
+}

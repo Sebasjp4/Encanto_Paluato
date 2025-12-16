@@ -1,0 +1,93 @@
+/* ========================================
+   WHATSAPP BUTTON - Encanto de Paluato
+   ======================================== */
+
+.btnWhatsapp {
+  /* Posicionamiento fijo en la esquina inferior derecha */
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  
+  /* Tamaño del botón circular */
+  width: 60px;
+  height: 60px;
+  
+  /* Color oficial de WhatsApp */
+  background-color: #25d366;
+  
+  /* Forma circular perfecta */
+  border-radius: 50%;
+  
+  /* Centra el icono dentro del círculo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Sombra para dar profundidad */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  
+  /* Está por encima de todo (excepto modales si los hubiera) */
+  z-index: 999;
+  
+  /* Transiciones suaves */
+  transition: all 0.3s ease;
+  
+  /* Sin decoración de enlace */
+  text-decoration: none;
+  color: white;
+}
+
+/* Efecto al pasar el mouse */
+.btnWhatsapp:hover {
+  /* Crece y rota ligeramente */
+  transform: scale(1.1) rotate(10deg);
+  
+  /* Sombra más intensa con color verde */
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+/* Icono de WhatsApp dentro del botón */
+.icon {
+  font-size: 2rem; /* Tamaño grande del icono */
+  color: white;
+}
+
+/* ========================================
+   ANIMACIÓN DE PULSO (OPCIONAL)
+   ======================================== */
+/* Puedes descomentar esto para que el botón "pulse" continuamente */
+
+/*
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.btnWhatsapp {
+  animation: pulse 2s infinite;
+}
+*/
+
+/* ========================================
+   RESPONSIVE - MÓVIL
+   ======================================== */
+@media (max-width: 768px) {
+  .btnWhatsapp {
+    /* En móvil, un poco más pequeño y más pegado al borde */
+    width: 55px;
+    height: 55px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .icon {
+    font-size: 1.8rem;
+  }
+}

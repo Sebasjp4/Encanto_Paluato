@@ -1,7 +1,7 @@
 import React from "react";
-import ReactDOM from "react-dom/client"; // @vite-ignore
+import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.css"; // ← IMPORTANTE: debe estar aquí
 // React DOM se encarga de renderizar los componentes de React en el DOM del navegador
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

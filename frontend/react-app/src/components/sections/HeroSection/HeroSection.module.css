@@ -1,0 +1,131 @@
+/* ========================================
+   HERO SECTION - Encanto de Paluato
+   ======================================== */
+
+.heroSection {
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  width: 100%;
+  position: relative; /* Para posicionar elementos absolutos dentro */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  overflow: hidden; /* Oculta desbordamientos */
+}
+
+/* --- CARRUSEL DE FONDO --- */
+.carouselBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Detrás del contenido */
+}
+
+.carouselBackground img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* La imagen cubre todo sin deformarse */
+  object-position: center;
+  opacity: 0; /* Invisible por defecto */
+  transition: opacity 1.5s ease-in-out; /* Transición suave */
+}
+
+/* La imagen activa es visible */
+.carouselBackground img.active {
+  opacity: 1;
+}
+
+/* --- OVERLAY OSCURO --- */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Gradiente radial: más claro en el centro, más oscuro en los bordes */
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%);
+  background-color: rgba(0, 0, 0, 0.3); /* Color de respaldo */
+  z-index: 2;
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+.principal {
+  position: relative;
+  z-index: 4; /* Por encima del overlay */
+  max-width: 900px;
+  padding: 0 20px;
+  margin-top: 60px; /* Espacio para el navbar fijo */
+}
+
+.principal h2 {
+  font-family: 'Playfair Display', serif; /* Fuente elegante */
+  font-size: 4rem;
+  margin-bottom: 20px;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8); /* Sombra para legibilidad */
+  letter-spacing: -1px;
+}
+
+.principal p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+  font-weight: 300; /* Texto ligero */
+}
+
+/* --- BOTÓN DE RESERVA --- */
+.botonReserva {
+  background-color: var(--color-boton);
+  color: white;
+  border: none;
+  border-radius: 50px; /* Bordes muy redondeados */
+  padding: 18px 50px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.botonReserva:hover {
+  transform: scale(1.05); /* Crece ligeramente */
+  background-color: #fff;
+  color: var(--color-primario);
+}
+
+/* ========================================
+   RESPONSIVE - MÓVIL
+   ======================================== */
+@media (max-width: 768px) {
+  .principal {
+    margin-top: 140px; /* Más espacio para navbar en móvil */
+  }
+
+  .principal h2 {
+    font-size: 2.5rem; /* Título más pequeño */
+  }
+
+  .principal p {
+    font-size: 1rem;
+  }
+
+  .botonReserva {
+    padding: 15px 35px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .principal h2 {
+    font-size: 2rem;
+  }
+}
