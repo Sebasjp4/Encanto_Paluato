@@ -1,13 +1,16 @@
 # Encanto_Paluato
+
 Desarrollo de la pagina web de paluato
 
-
 # Backend
----------------
-*lenguajes*
+
+---
+
+_lenguajes_
 Python
 FastAPI
-*----------------*
-
+_----------------_
 
 # Frontend
+
+Actualizar el CSS de "locationSection" no me termino de convencer

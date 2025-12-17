@@ -1,0 +1,158 @@
+/* src/components/sections/LocationSection/LocationSection.module.css */
+
+.section {
+    padding: 100px 5%;
+    background-color: #ffffff; /* Mismo tono crema */
+    position: relative;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Columna Izquierda (Texto) --- */
+.infoColumn {
+    flex: 1;
+    max-width: 500px;
+}
+
+.magicText {
+    font-size: 2rem;
+    color: var(--color-primario, #76c802);
+    display: block;
+    margin-bottom: 5px;
+    transform: rotate(-2deg);
+}
+
+.title {
+    font-size: 3rem;
+    color: #333;
+    margin: 0 0 25px 0;
+    line-height: 1.1;
+}
+
+.description {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.detailItem {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.icon {
+    font-size: 1.5rem;
+    background: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+}
+
+.detailItem strong {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--color-primario, #76c802);
+    margin-bottom: 5px;
+}
+
+.detailItem p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.btnMap {
+    display: inline-block;
+    padding: 12px 35px;
+    background-color: var(--color-secundario, #f6be16);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 15px rgba(246, 190, 22, 0.3);
+}
+
+.btnMap:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(246, 190, 22, 0.5);
+}
+
+/* --- Columna Derecha (Mapa) --- */
+.mapColumn {
+    flex: 1.2;
+    height: 500px;
+    position: relative;
+}
+
+.mapWrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px; /* Bordes muy redondeados */
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    border: 5px solid #fff; /* Marco blanco tipo foto */
+    transform: rotate(1deg); /* Un toque "orgánico" chueco */
+    transition: transform 0.3s ease;
+}
+
+.mapWrapper:hover {
+    transform: rotate(0deg) scale(1.01);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .section { padding: 60px 20px; }
+    
+    .container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .infoColumn {
+        text-align: center;
+        max-width: 100%;
+    }
+    
+    .magicText { transform: none; display: inline-block; }
+    
+    .details {
+        text-align: left; /* Mantener detalles alineados para leer bien */
+        background: #fff;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+    }
+    
+    .mapColumn {
+        width: 100%;
+        height: 350px; /* Más bajito en móvil */
+    }
+    
+    .mapWrapper {
+        transform: none; /* Sin rotación en móvil */
+    }
+}

@@ -14,6 +14,8 @@ import AmenitiesSection from "./components/sections/AmenitiesSection";
 import RoomsSection from "./components/sections/RoomsSection";
 import ExperiencesSection from "./components/sections/ExperiencesSection";
 import PlansSection from "./components/sections/PlansSection";
+import { TestimonialsSection } from "./components/sections/TestimonialsSection";
+import { LocationSection } from "./components/sections/LocationSection"; // Importar
 
 function App() {
   return (
@@ -61,7 +63,9 @@ function App() {
             background: "#fff",
           }}
         >
-          <h2 style={{ fontSize: "2.5rem", marginBottom: "20px" }}>
+          <TestimonialsSection />
+          <LocationSection />
+          {/* <h2 style={{ fontSize: "2.5rem", marginBottom: "20px" }}>
             Próximas Secciones
           </h2>
           <p style={{ fontSize: "1.2rem", color: "#666" }}>💬 Testimonios</p>
@@ -69,7 +73,7 @@ function App() {
           <p style={{ fontSize: "1.2rem", color: "#666" }}>
             {" "}
             📍 Ubicación y Contacto
-          </p>
+          </p> */}
         </div>
       </main>
 
