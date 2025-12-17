@@ -40,7 +40,7 @@ export interface Plan {
   description: string;
   ctaText: string;
   ctaLink: string;
-  colorClass: 'plan-dia' | 'plan-full' | 'plan-romantico';
+  colorClass: 'plan-1' | 'plan-2' | 'plan-3'; // camelCase
 }
 
 // --- TESTIMONIOS ---

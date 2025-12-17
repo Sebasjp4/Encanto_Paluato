@@ -11,7 +11,6 @@ import styles from "./HeroSection.module.css";
 const HERO_IMAGES = [
   "/src/assets/images/imagen-fondo1.jpg",
   "/src/assets/images/imagen-fondo2.jpg",
-  "/src/assets/images/mirador.jpg",
 ];
 
 const HeroSection = () => {

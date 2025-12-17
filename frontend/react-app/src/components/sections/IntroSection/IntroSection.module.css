@@ -1,0 +1,41 @@
+/* ========================================
+  INTRO SECTION - Texto del Destino
+   ======================================== */
+
+.textoDestino {
+  padding: 120px 10%;
+  text-align: center;
+  background: #fff;
+}
+
+.textoDestino h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: var(--color-texto);
+  font-weight: 700;
+}
+
+.textoDestino p {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* ========================================
+  RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+  .textoDestino {
+    padding: 80px 20px;
+  }
+
+  .textoDestino h2 {
+    font-size: 1.8rem;
+  }
+
+  .textoDestino p {
+    font-size: 1rem;
+  }
+}

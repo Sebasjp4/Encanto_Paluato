@@ -1,0 +1,187 @@
+/* ========================================
+   PLANS SECTION - Nuestros Planes
+   ======================================== */
+
+.plansSection {
+  padding: 100px 5%;
+  background-color: #fff; /* Fondo blanco para contraste */
+  text-align: center;
+}
+
+/* --- HEADER DE SECCIÓN --- */
+.sectionHeader {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.sectionHeader h2 {
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.sectionHeader p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 0;
+}
+
+/* --- GRID DE PLANES --- */
+.gridPlanes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 40px auto 0;
+}
+
+/* --- CARD DE PLAN --- */
+.cardPlan {
+  flex: 1 1 300px; /* Flexible pero con base ancha */
+  max-width: 350px;
+  background: #fdfcf8;
+  padding: 40px 30px;
+  border-radius: 20px;
+  border: 1px solid #eee;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Borde superior de color por tipo de plan */
+.cardPlan::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  /* Color por defecto (verde) */
+  background: #1a1a1a;
+}
+
+.cardPlan:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  transform: translateY(-5px);
+  border-color: transparent;
+}
+
+/* --- ICONO/EMOJI --- */
+.iconPlan {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+/* --- TÍTULO DEL PLAN --- */
+.cardPlan h3 {
+  font-family: var(--font-primary);
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* --- DESCRIPCIÓN --- */
+.cardPlan p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* --- BOTÓN DE ACCIÓN --- */
+.btnInfoPlan {
+  display: inline-block;
+  padding: 10px 25px;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  color: #555;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btnInfoPlan:hover {
+  background: var(--color-texto);
+  color: #fff;
+  border-color: var(--color-texto);
+}
+
+/* --- COLORES ESPECÍFICOS PARA CADA TIPO DE PLAN --- */
+
+/* Plan Día (Amarillo) */
+.plan-1::before {
+  background: #FFC517;
+}
+
+/* Plan Casa Completa (Azul) */
+.plan-2::before {
+  background: #2079FF;
+}
+
+/* Plan Romántico (Rojo) */
+.plan-3::before {
+  background: #C52535;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+/* TABLET */
+@media (max-width: 900px) {
+  .plansSection {
+    padding: 80px 20px;
+  }
+
+  .gridPlanes {
+    gap: 30px;
+  }
+}
+
+/* MÓVIL */
+@media (max-width: 768px) {
+  .sectionHeader h2 {
+    font-size: 2rem;
+  }
+
+  .gridPlanes {
+    /* 1 columna en móvil */
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .cardPlan {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .plansSection {
+    padding: 60px 15px;
+  }
+
+  .cardPlan {
+    padding: 30px 20px;
+  }
+
+  .cardPlan h3 {
+    font-size: 1.2rem;
+  }
+
+  .cardPlan p {
+    font-size: 0.9rem;
+  }
+
+  .iconPlan {
+    font-size: 2.5rem;
+  }
+}

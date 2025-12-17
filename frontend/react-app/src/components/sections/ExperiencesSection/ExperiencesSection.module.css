@@ -1,0 +1,146 @@
+/* ========================================
+   EXPERIENCES SECTION - Vive la Magia
+   ======================================== */
+
+.experiencesSection {
+  padding: 100px 5%;
+  background-color: #fdfcf8; /* Fondo crema */
+  text-align: center;
+}
+
+/* --- HEADER DE SECCIÓN --- */
+.sectionHeader {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.sectionHeader h2 {
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.sectionHeader p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 0;
+}
+
+/* --- GRID DE EXPERIENCIAS --- */
+.gridExperiencias {
+  display: grid;
+  /* Se adapta automáticamente, mínimo 300px por columna */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px auto 0;
+}
+
+/* --- CARD DE EXPERIENCIA --- */
+.cardExperiencia {
+  position: relative;
+  height: 350px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease;
+}
+
+.cardExperiencia:hover {
+  transform: translateY(-10px);
+}
+
+/* --- IMAGEN DE FONDO --- */
+.cardExperiencia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.cardExperiencia:hover img {
+  transform: scale(1.1); /* Zoom suave al hover */
+}
+
+/* --- OVERLAY CON INFORMACIÓN --- */
+.infoExperiencia {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 20px;
+  /* Gradiente oscuro desde abajo hacia arriba */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  color: white;
+  text-align: left;
+  transform: translateY(10px);
+  transition: transform 0.4s ease;
+}
+
+.cardExperiencia:hover .infoExperiencia {
+  transform: translateY(0);
+}
+
+.infoExperiencia h3 {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  margin: 0 0 5px 0;
+  color: var(--color-secundario); /* Amarillo marca */
+  font-weight: 600;
+}
+
+.infoExperiencia p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+/* TABLET */
+@media (max-width: 900px) {
+  .experiencesSection {
+    padding: 80px 20px;
+  }
+
+  .gridExperiencias {
+    gap: 25px;
+  }
+}
+
+/* MÓVIL */
+@media (max-width: 768px) {
+  .sectionHeader h2 {
+    font-size: 2rem;
+  }
+
+  .gridExperiencias {
+    /* 1 columna en móvil */
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .cardExperiencia {
+    height: 320px;
+  }
+
+  .infoExperiencia {
+    /* En móvil, el overlay siempre visible */
+    transform: translateY(0);
+  }
+
+  .infoExperiencia h3 {
+    font-size: 1.3rem;
+  }
+
+  .infoExperiencia p {
+    font-size: 0.9rem;
+  }
+}
