@@ -3,14 +3,21 @@ import styles from "./Navbar.module.css";
 import { LOGO } from "../../../constants/images";
 import type { NavLink } from "../../../types";
 
+// 1. Definimos la interfaz para recibir la función de abrir el modal
+interface NavbarProps {
+  onOpenAuth: () => void;
+}
+
 const NAV_LINKS: NavLink[] = [
   { label: "Inicio", href: "#" },
   { label: "El Destino", href: "#destino" },
-  { label: "Experiencias", href: "#amenidades" },
+  { label: "Experiencias", href: "#experiencias" },
+  { label: "Donde estamos", href: "#ubicacion" },
   { label: "Reservar", href: "#habitaciones" },
 ];
 
-const Navbar = () => {
+// 2. Desestructuramos onOpenAuth de las props
+const Navbar: React.FC<NavbarProps> = ({ onOpenAuth }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -55,12 +62,13 @@ const Navbar = () => {
 
       {/* Botones de Autenticación */}
       <div className={styles.navAuth}>
-        <a href="#" className={styles.btnLogin}>
+        {/* 3. Cambiamos <a> por <button> y asignamos el evento onClick */}
+        <button onClick={onOpenAuth} className={styles.btnLogin}>
           Ingresar
-        </a>
-        <a href="#" className={styles.btnRegister}>
+        </button>
+        <button onClick={onOpenAuth} className={styles.btnRegister}>
           Registrarse
-        </a>
+        </button>
       </div>
 
       {/* Hamburger Menu (Móvil) */}

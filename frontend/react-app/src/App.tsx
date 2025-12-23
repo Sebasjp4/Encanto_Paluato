@@ -1,7 +1,7 @@
 // ========================================
 // APP.TSX - Componente Principal
 // ========================================
-
+import { useState } from "react";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import WhatsAppButton from "./components/layout/WhatsAppButton";
@@ -16,13 +16,19 @@ import ExperiencesSection from "./components/sections/ExperiencesSection";
 import PlansSection from "./components/sections/PlansSection";
 import { TestimonialsSection } from "./components/sections/TestimonialsSection";
 import { LocationSection } from "./components/sections/LocationSection"; // Importar
+import { AuthModal } from "./components/ui/AuthModal/AuthModal"; // Importar el modal
 
 function App() {
+  // Estado para controlar si el modal está visible
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
+
+  const openAuth = () => setIsAuthOpen(true);
+  const closeAuth = () => setIsAuthOpen(false);
+
   return (
     <div className="App">
       {/* Navbar fijo */}
-      <Navbar />
-
+      <Navbar onOpenAuth={openAuth} />
       <main>
         {/* Hero Section - Carrusel principal */}
         <HeroSection />
@@ -79,6 +85,7 @@ function App() {
 
       <Footer />
       <WhatsAppButton />
+      <AuthModal isOpen={isAuthOpen} onClose={closeAuth} />
     </div>
   );
 }

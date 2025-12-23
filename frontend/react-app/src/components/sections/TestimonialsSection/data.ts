@@ -18,8 +18,8 @@ export const reviewsData = [
     },
     {
       id: 3,
-      name: "Gustavo Puello",
-      text: "Un lugar maravilloso, acogedor las personas que nos atendieron demasiado amables y cariñosos, nos dieron cocteles de bienvenida y las instalaciones 10/10 un lugar ideal para vivir un buen descanso 🦋🙌…",
+      name: "Nata guissell",
+      text: "Casa Encanto de Paluato hace honor a su nombre.Es mariposas amarillas, olor a café recién hecho y una paz que no se explica, se siente. Es naturaleza, es pausa, es volver a lo esencial. Desconectarse del ruido para conectar con lo que de verdad importa. Un lugar bonito por dentro y por fuera, de esos que se quedan contigo. Gracias por la experiencia. Ojalá muchos más se animena descubrir este pedacito de realismo mágico, ubicado en el centro de Paluato.",
       rating: 5,
       link: GOOGLE_REVIEWS_LINK
     }

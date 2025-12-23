@@ -1,63 +1,57 @@
-from sqlalchemy import Column, Integer, String, Boolean, Enum, ForeignKey, DateTime # importamos los tipos de datos necesarios
-from sqlalchemy.orm import relationship # para definir relaciones entre tablas 
-from app.database import Base # importamos la base declarativa desde database.py 
-import enum # para definir enumeraciones
+import enum
+from sqlalchemy import Column, Integer, String, Enum, DECIMAL, Text, ForeignKey, Boolean
+from sqlalchemy.orm import relationship
+from app.core.database import Base
 
-# Enums
-class EstadoGeneralSede(str, enum.Enum):
-    Activo = 'Activo'
-    Mantenimiento = 'Mantenimiento'
-    ocupado = 'ocupado'
-    maxima_Capacidad = 'maxima_Capacidad'
+# --- ENUMS ---
+class EstadoGeneralEnum(str, enum.Enum):
+    Excelente = "Excelente"
+    Bueno = "Bueno"
+    Regular = "Regular"
+    Malo = "Malo"
+    En_Reparacion = "En Reparacion"
 
-class EstadoHabitacion(str, enum.Enum):
-    Disponible = 'Disponible'
-    Ocupada = 'Ocupada'
-    Limpieza = 'Limpieza'
-    Mantenimiento = 'Mantenimiento'
+# --- MODELOS ---
 
-# Modelos
 class Sede(Base):
-    __tablename__ = "Sede" # nombre de la tabla
-    ID_Sede = Column(Integer, primary_key=True, index=True) # clave primaria
-    Nombre = Column(String(100)) # nombre de la sede
-    Capacidad_Total = Column(Integer) # capacidad total de la sede
-    Estado_General = Column(Enum(EstadoGeneralSede), default=EstadoGeneralSede.Activo) # estado general de la sede
-    
-    habitaciones = relationship("Habitacion", back_populates="sede") # relacion con Habitacion
-    areas = relationship("AreaControl", back_populates="sede") # relacion con AreaControl
+    __tablename__ = "sede"
 
-class AreaControl(Base): 
-    __tablename__ = "Area_Control"
-    ID_Area = Column(Integer, primary_key=True, index=True)
-    ID_Sede = Column(Integer, ForeignKey("Sede.ID_Sede"))
-    Nombre_Area = Column(String(40))
-    Estado_Operativo = Column(Boolean, default=True)
-    Ultima_Revision = Column(DateTime)
+    id_sede = Column("id_sede", Integer, primary_key=True, index=True)
+    nombre = Column("nombre", String(100), nullable=False)
+    capacidad_total = Column("capacidad_total", Integer)
+    estado_general = Column("estado_general", Enum(EstadoGeneralEnum, name="estado_general_enum"), default=EstadoGeneralEnum.Bueno)
 
-    sede = relationship("Sede", back_populates="areas")
-    inventarios = relationship("Inventario", back_populates="area")
+    # Relación inversa (Una Sede tiene muchas Habitaciones)
+    habitaciones = relationship("Habitacion", back_populates="sede")
+
+
+class TipoHabitacion(Base):
+    __tablename__ = "tipo_habitacion"
+
+    id_tipo = Column("id_tipo", Integer, primary_key=True, index=True)
+    nombre = Column("nombre", String(50), nullable=False)
+    capacidad = Column("capacidad", Integer, nullable=False)
+    precio_base = Column("precio_base", DECIMAL(10, 2), nullable=False)
+    descripcion = Column("descripcion", Text)
+
+    # Relación inversa
+    habitaciones = relationship("Habitacion", back_populates="tipo")
+
 
 class Habitacion(Base):
-    __tablename__ = "Habitacion" # nombre de la tabla
-    ID_Habitacion = Column(Integer, primary_key=True, index=True) # clave primaria
-    ID_Sede = Column(Integer, ForeignKey("Sede.ID_Sede")) # clave foranea a Sede
-    Nombre = Column(String(50)) # nombre o numero de la habitacion
-    Tipo = Column(String(50)) # tipo de habitacion (simple, doble, suite, etc.)
-    Capacidad = Column(Integer) # capacidad de la habitacion
-    Estado = Column(Enum(EstadoHabitacion), default=EstadoHabitacion.Disponible) # estado de la habitacion
+    __tablename__ = "habitacion"
 
-    sede = relationship("Sede", back_populates="habitaciones") # relacion con Sede
-    inventarios = relationship("Inventario", back_populates="habitacion") # relacion con Inventario
-    # Relaciones con transacciones se definen en el otro archivo o con strings
+    id_habitacion = Column("id_habitacion", Integer, primary_key=True, index=True)
+    numero = Column("numero", String(10), unique=True, nullable=False)
+    nombre_comercial = Column("nombre_comercial", String(100))
+    
+    # LLAVES FORÁNEAS (Conexión con las otras tablas)
+    id_tipo = Column("id_tipo", Integer, ForeignKey("tipo_habitacion.id_tipo"), nullable=False)
+    id_sede = Column("id_sede", Integer, ForeignKey("sede.id_sede"), nullable=False)
+    
+    estado = Column("estado", String(20), default='Disponible')
 
-class Inventario(Base):
-    __tablename__ = "Inventario"
-    ID_Item = Column(Integer, primary_key=True, index=True)
-    Nombre_Item = Column(String(100))
-    Cantidad = Column(Integer, default=1)
-    ID_Habitacion = Column(Integer, ForeignKey("Habitacion.ID_Habitacion"), nullable=True)
-    ID_Area = Column(Integer, ForeignKey("Area_Control.ID_Area"), nullable=True)
-
-    habitacion = relationship("Habitacion", back_populates="inventarios")
-    area = relationship("AreaControl", back_populates="inventarios")
+    # RELACIONES (Para acceder a los objetos completos)
+    # Esto te permite hacer: mi_habitacion.tipo.nombre
+    tipo = relationship("TipoHabitacion", back_populates="habitaciones")
+    sede = relationship("Sede", back_populates="habitaciones")
